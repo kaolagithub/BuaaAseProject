@@ -1,0 +1,3209 @@
+{
+  "root": {
+    "content": {
+      "modelElements": [
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "生产实时控制系统",
+              "type": "<string>"
+            }
+          },
+          "type": "Actor"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "生产监控员",
+              "type": "<string>"
+            }
+          },
+          "type": "Actor"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "控制生产运行",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "<系统>状态为待机",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统> VALIDATES THAT 生产任务队列非空从任务队列中获取本次轧制任务",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "subject": {
+                                "content": "<系统>",
+                                "type": "<string>"
+                              },
+                              "object": {
+                                "content": "生产任务队列非空从任务队列中获取本次轧制任务",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "ValidateThatNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产控制系统从任务队列中获取本次轧制任务",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>将此次生产任务从队列中移出",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产控制系统将<系统>状态设定为正常运行",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产控制系统设定轨道速度和辊缝宽度",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>发送设定参数指令给轧轮作动器和轨道作动器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>发送指令打开轧轮作动器和轨道作动器，开始轧制。",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "DO",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {},
+                              "type": "DoNature"
+                            },
+                            {
+                              "content": {
+                                "compositeSentences": [
+                                  "&0",
+                                  "&1"
+                                ],
+                                "untilSentence": "&1",
+                                "doSentence": "&0"
+                              },
+                              "type": "DoComposite"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "INCLUDE USE CASE 厚度控制",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {"useCaseName": {
+                              "content": "厚度控制",
+                              "type": "<string>"
+                            }},
+                            "type": "IncludeUCNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "INCLUDE USE CASE 速度控制",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {"useCaseName": {
+                              "content": "速度控制",
+                              "type": "<string>"
+                            }},
+                            "type": "IncludeUCNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "INCLUDE USE CASE 位置检测",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {"useCaseName": {
+                              "content": "位置检测",
+                              "type": "<string>"
+                            }},
+                            "type": "IncludeUCNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "UNTIL 生产控制系统判断钢坯完全通过轧轮",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {"untilCondition": {
+                                "content": "生产控制系统判断钢坯完全通过轧轮",
+                                "type": "<string>"
+                              }},
+                              "type": "UntilNature"
+                            },
+                            {
+                              "content": {
+                                "referenceSentence": "&0",
+                                "referenceNature": "&2"
+                              },
+                              "type": "ReferenceNature"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统> VALIDATES THAT 成品钢板符合要求",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "subject": {
+                                "content": "<系统>",
+                                "type": "<string>"
+                              },
+                              "object": {
+                                "content": "成品钢板符合要求",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "ValidateThatNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>将成品送入成品区",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>将自身状态置于待机",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BasicFlow"
+                },
+                "preCondition": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "<系统>检测各类传感器工作正常，<系统>状态处于待机",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "PreCondition"
+                },
+                "briefDescription": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "轧钢控制系统控制生产线完成一块钢板的轧制",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BriefDescription"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "alternativeFlows": [
+                  {
+                    "content": {
+                      "postCondition": {
+                        "content": {
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "sentences": [{
+                            "content": {
+                              "content": {
+                                "content": "系统处于待修理状态",
+                                "type": "<string>"
+                              },
+                              "description": {
+                                "content": "",
+                                "type": "<string>"
+                              },
+                              "name": {
+                                "content": "",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "Sentence"
+                          }]
+                        },
+                        "type": "PostCondition"
+                      },
+                      "description": {
+                        "content": "",
+                        "type": "<string>"
+                      },
+                      "name": {
+                        "content": "故障Global",
+                        "type": "<string>"
+                      },
+                      "conditionSentence": {
+                        "content": {
+                          "content": {
+                            "content": "IF <系统>处于故障状态 THEN",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      "steps": [{
+                        "content": {
+                          "content": {
+                            "content": "INCLUDE USE CASE 异常处理",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {"useCaseName": {
+                              "content": "异常处理",
+                              "type": "<string>"
+                            }},
+                            "type": "IncludeUCNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }]
+                    },
+                    "type": "GlobalAlternative"
+                  },
+                  {
+                    "content": {
+                      "postCondition": {
+                        "content": {
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "sentences": [{
+                            "content": {
+                              "content": {
+                                "content": "系统等待新的生产任务进入任务队列",
+                                "type": "<string>"
+                              },
+                              "description": {
+                                "content": "",
+                                "type": "<string>"
+                              },
+                              "name": {
+                                "content": "",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "Sentence"
+                          }]
+                        },
+                        "type": "PostCondition"
+                      },
+                      "description": {
+                        "content": "",
+                        "type": "<string>"
+                      },
+                      "name": {
+                        "content": "",
+                        "type": "<string>"
+                      },
+                      "rfsSentence": {
+                        "content": {
+                          "content": {
+                            "content": "RFS 1",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "segments": [{
+                                "content": {
+                                  "toStep": {
+                                    "content": 1,
+                                    "type": "<int>"
+                                  },
+                                  "fromStep": {
+                                    "content": 1,
+                                    "type": "<int>"
+                                  }
+                                },
+                                "type": "RFSNatureSegment"
+                              }],
+                              "flowName": {
+                                "content": "",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "RFSNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      "steps": [
+                        {
+                          "content": {
+                            "content": {
+                              "content": "<系统>保持当前运行状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        },
+                        {
+                          "content": {
+                            "content": {
+                              "content": "ABORT",
+                              "type": "<string>"
+                            },
+                            "natures": [{
+                              "content": {},
+                              "type": "AbortNature"
+                            }],
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }
+                      ]
+                    },
+                    "type": "BoundedAlternative"
+                  },
+                  {
+                    "content": {
+                      "postCondition": {
+                        "content": {
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "sentences": [{
+                            "content": {
+                              "content": {
+                                "content": "<系统>状态为待机",
+                                "type": "<string>"
+                              },
+                              "description": {
+                                "content": "",
+                                "type": "<string>"
+                              },
+                              "name": {
+                                "content": "",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "Sentence"
+                          }]
+                        },
+                        "type": "PostCondition"
+                      },
+                      "description": {
+                        "content": "",
+                        "type": "<string>"
+                      },
+                      "name": {
+                        "content": "",
+                        "type": "<string>"
+                      },
+                      "rfsSentence": {
+                        "content": {
+                          "content": {
+                            "content": "RFS 15",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "segments": [{
+                                "content": {
+                                  "toStep": {
+                                    "content": 15,
+                                    "type": "<int>"
+                                  },
+                                  "fromStep": {
+                                    "content": 15,
+                                    "type": "<int>"
+                                  }
+                                },
+                                "type": "RFSNatureSegment"
+                              }],
+                              "flowName": {
+                                "content": "",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "RFSNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      "steps": [
+                        {
+                          "content": {
+                            "content": {
+                              "content": "<系统>将废品送到废料区",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        },
+                        {
+                          "content": {
+                            "content": {
+                              "content": "INCLUDE USE CASE 设置生产任务",
+                              "type": "<string>"
+                            },
+                            "natures": [{
+                              "content": {"useCaseName": {
+                                "content": "设置生产任务",
+                                "type": "<string>"
+                              }},
+                              "type": "IncludeUCNature"
+                            }],
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        },
+                        {
+                          "content": {
+                            "content": {
+                              "content": "<系统>将自身状态置于待机",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }
+                      ]
+                    },
+                    "type": "BoundedAlternative"
+                  }
+                ],
+                "primaryActor": "&3"
+              },
+              "type": "UseCaseSpecification"
+            },
+            "include": [{
+              "content": {
+                "includingCase": "&4",
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "addition": "&5"
+              },
+              "type": "Include"
+            }]
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "useCase": "&4",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "设置生产任务",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [{
+                      "content": {
+                        "content": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BasicFlow"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                }
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "监控生产数据",
+              "type": "<string>"
+            },
+            "include": [
+              {
+                "content": {
+                  "includingCase": "&5",
+                  "description": {
+                    "content": "",
+                    "type": "<string>"
+                  },
+                  "name": {
+                    "content": "",
+                    "type": "<string>"
+                  },
+                  "addition": "&6"
+                },
+                "type": "Include"
+              },
+              {
+                "content": {
+                  "includingCase": "&5",
+                  "description": {
+                    "content": "",
+                    "type": "<string>"
+                  },
+                  "name": {
+                    "content": "",
+                    "type": "<string>"
+                  },
+                  "addition": "&7"
+                },
+                "type": "Include"
+              }
+            ]
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "作动器",
+              "type": "<string>"
+            }
+          },
+          "type": "Actor"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "探测器",
+              "type": "<string>"
+            }
+          },
+          "type": "Actor"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "数据传输",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [{
+                      "content": {
+                        "content": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BasicFlow"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                }
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "useCase": "&7",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&8"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&7",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&9"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&5",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&10"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "异常处理",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "系统处于待修理状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>记录故障情况",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>停止所有作动器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "DO",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {},
+                              "type": "DoNature"
+                            },
+                            {
+                              "content": {
+                                "compositeSentences": [
+                                  "&11",
+                                  "&12"
+                                ],
+                                "untilSentence": "&12",
+                                "doSentence": "&11"
+                              },
+                              "type": "DoComposite"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>设置轧辊间距为最大值",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>打开钢板轨道作动器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "UNTIL <系统>检测没有钢材在生产线上",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {"untilCondition": {
+                                "content": "<系统>检测没有钢材在生产线上",
+                                "type": "<string>"
+                              }},
+                              "type": "UntilNature"
+                            },
+                            {
+                              "content": {
+                                "referenceSentence": "&11",
+                                "referenceNature": "&13"
+                              },
+                              "type": "ReferenceNature"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>设置轧辊间距为最小值",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>关闭轧辊作动器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>关闭钢板轨道作动器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>通知生产线工人故障情况",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BasicFlow"
+                },
+                "preCondition": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "系统处于故障状态",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "PreCondition"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                }
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "监测实时生产数据",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "系统保持正常工作状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产管理员调用生产状态查询接口",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>发送查询指令给对应设备",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>validate that设备返回信息",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>显示设备返回信息",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BasicFlow"
+                },
+                "preCondition": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "系统处于正常工作状态",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "PreCondition"
+                },
+                "briefDescription": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "生产监控员实时监控当前生产数据",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BriefDescription"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "alternativeFlows": [{
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "系统保持正常工作状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "rfsSentence": {
+                      "content": {
+                        "content": {
+                          "content": "RFS 3",
+                          "type": "<string>"
+                        },
+                        "natures": [{
+                          "content": {
+                            "segments": [{
+                              "content": {
+                                "toStep": {
+                                  "content": 3,
+                                  "type": "<int>"
+                                },
+                                "fromStep": {
+                                  "content": 3,
+                                  "type": "<int>"
+                                }
+                              },
+                              "type": "RFSNatureSegment"
+                            }],
+                            "flowName": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "RFSNature"
+                        }],
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>重新发送查询指令信息",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "IF 传感器返回信息 THEN",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {"ifCondition": {
+                                "content": "传感器返回信息",
+                                "type": "<string>"
+                              }},
+                              "type": "IfThenNature"
+                            },
+                            {
+                              "content": {
+                                "compositeSentences": [
+                                  "&14",
+                                  "&15",
+                                  "&16"
+                                ],
+                                "endIfSentence": "&16",
+                                "elseSentence": "&15",
+                                "ifSentence": "&14"
+                              },
+                              "type": "IfElseComposite"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "RESUME STEP 4",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "flowName": {
+                                "content": "",
+                                "type": "<string>"
+                              },
+                              "step": {
+                                "content": 4,
+                                "type": "<int>"
+                              }
+                            },
+                            "type": "ResumeStepNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "ELSE",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {},
+                              "type": "ElseNature"
+                            },
+                            {
+                              "content": {
+                                "referenceSentence": "&14",
+                                "referenceNature": "&17"
+                              },
+                              "type": "ReferenceNature"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "系统显示数据查询失败",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "ENDIF",
+                            "type": "<string>"
+                          },
+                          "natures": [
+                            {
+                              "content": {},
+                              "type": "EndIfNature"
+                            },
+                            {
+                              "content": {
+                                "referenceSentence": "&14",
+                                "referenceNature": "&17"
+                              },
+                              "type": "ReferenceNature"
+                            }
+                          ],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "SpecificAlternative"
+                }],
+                "primaryActor": "&10"
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "specific": "&10",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "general": "&3"
+          },
+          "type": "Generalization"
+        },
+        {
+          "content": {
+            "useCase": "&5",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "specific": "&10",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "general": "&3"
+          },
+          "type": "Generalization"
+        },
+        {
+          "content": {
+            "specific": "&3",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "general": "&10"
+          },
+          "type": "Generalization"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            }
+          },
+          "type": "Package"
+        },
+        {
+          "content": {
+            "useCase": "&18",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "修理生产线",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "basicFlow": {
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "保持<系统>当前状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产线工人收到设备故障信息",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产线工人修复损坏部件",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>VALIDATES THAT生产线各个部件正常工作",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "subject": {
+                                "content": "<系统>",
+                                "type": "<string>"
+                              },
+                              "object": {
+                                "content": "生产线各个部件正常工作",
+                                "type": "<string>"
+                              }
+                            },
+                            "type": "ValidateThatNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产线工人启动生产线",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "生产线工人修改系统状态为待机",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BasicFlow"
+                },
+                "preCondition": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "生产线处于待修理状态",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "PreCondition"
+                },
+                "briefDescription": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "生产线工人在生产线停止状态下修理生产线部件",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BriefDescription"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "alternativeFlows": [{
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "保持<系统>当前状态",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "rfsSentence": {
+                      "content": {
+                        "content": {
+                          "content": "RFS 2",
+                          "type": "<string>"
+                        },
+                        "natures": [{
+                          "content": {
+                            "segments": [{
+                              "content": {
+                                "toStep": {
+                                  "content": 2,
+                                  "type": "<int>"
+                                },
+                                "fromStep": {
+                                  "content": 2,
+                                  "type": "<int>"
+                                }
+                              },
+                              "type": "RFSNatureSegment"
+                            }],
+                            "flowName": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "RFSNature"
+                        }],
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>记录故障情况",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "RESUME STEP 1",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {
+                              "flowName": {
+                                "content": "",
+                                "type": "<string>"
+                              },
+                              "step": {
+                                "content": 1,
+                                "type": "<int>"
+                              }
+                            },
+                            "type": "ResumeStepNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BoundedAlternative"
+                }],
+                "primaryActor": "&19"
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "生产线工人",
+              "type": "<string>"
+            }
+          },
+          "type": "Actor"
+        },
+        {
+          "content": {
+            "useCase": "&20",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&19"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&6",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&10"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "厚度控制",
+              "type": "<string>"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "速度控制",
+              "type": "<string>"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "位置检测",
+              "type": "<string>"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "useCase": "&21",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&10"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "紧急停止生产",
+              "type": "<string>"
+            },
+            "specification": {
+              "content": {
+                "secondaryActors": ["&9"],
+                "basicFlow": {
+                  "content": {
+                    "postCondition": {
+                      "content": {
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "sentences": [{
+                          "content": {
+                            "content": {
+                              "content": "<系统>状态设为待修理",
+                              "type": "<string>"
+                            },
+                            "description": {
+                              "content": "",
+                              "type": "<string>"
+                            },
+                            "name": {
+                              "content": "",
+                              "type": "<string>"
+                            }
+                          },
+                          "type": "Sentence"
+                        }]
+                      },
+                      "type": "PostCondition"
+                    },
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "steps": [
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>将自身状态设为故障",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "<系统>打开报警器",
+                            "type": "<string>"
+                          },
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      },
+                      {
+                        "content": {
+                          "content": {
+                            "content": "INCLUDE USE CASE 异常处理",
+                            "type": "<string>"
+                          },
+                          "natures": [{
+                            "content": {"useCaseName": {
+                              "content": "异常处理",
+                              "type": "<string>"
+                            }},
+                            "type": "IncludeUCNature"
+                          }],
+                          "description": {
+                            "content": "",
+                            "type": "<string>"
+                          },
+                          "name": {
+                            "content": "",
+                            "type": "<string>"
+                          }
+                        },
+                        "type": "Sentence"
+                      }
+                    ]
+                  },
+                  "type": "BasicFlow"
+                },
+                "preCondition": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "生产监控员按下紧急停止生产按钮",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "PreCondition"
+                },
+                "briefDescription": {
+                  "content": {
+                    "description": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "name": {
+                      "content": "",
+                      "type": "<string>"
+                    },
+                    "sentences": [{
+                      "content": {
+                        "content": {
+                          "content": "生产监控员紧急停止生产",
+                          "type": "<string>"
+                        },
+                        "description": {
+                          "content": "",
+                          "type": "<string>"
+                        },
+                        "name": {
+                          "content": "",
+                          "type": "<string>"
+                        }
+                      },
+                      "type": "Sentence"
+                    }]
+                  },
+                  "type": "BriefDescription"
+                },
+                "description": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "name": {
+                  "content": "",
+                  "type": "<string>"
+                },
+                "primaryActor": "&10"
+              },
+              "type": "UseCaseSpecification"
+            }
+          },
+          "type": "UseCase"
+        },
+        {
+          "content": {
+            "useCase": "&22",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&10"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&21",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&23",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        },
+        {
+          "content": {
+            "useCase": "&24",
+            "description": {
+              "content": "",
+              "type": "<string>"
+            },
+            "name": {
+              "content": "",
+              "type": "<string>"
+            },
+            "actor": "&3"
+          },
+          "type": "Relationship"
+        }
+      ],
+      "description": {
+        "content": "",
+        "type": "<string>"
+      },
+      "name": {
+        "content": "",
+        "type": "<string>"
+      },
+      "diagrams": [{
+        "content": {
+          "height": {
+            "content": 0,
+            "type": "<int>"
+          },
+          "nodes": [
+            {
+              "content": {
+                "height": {
+                  "content": 90,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 131,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 20,
+                  "type": "<int>"
+                },
+                "actor": "&3",
+                "top": {
+                  "content": 82,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDActorNode"
+            },
+            {
+              "content": {
+                "useCase": "&4",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 411,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 240,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "height": {
+                  "content": 90,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 93,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 48,
+                  "type": "<int>"
+                },
+                "actor": "&10",
+                "top": {
+                  "content": 393,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDActorNode"
+            },
+            {
+              "content": {
+                "useCase": "&21",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 411,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 327,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "height": {
+                  "content": 90,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 59,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 1271,
+                  "type": "<int>"
+                },
+                "actor": "&9",
+                "top": {
+                  "content": 398,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDActorNode"
+            },
+            {
+              "content": {
+                "height": {
+                  "content": 90,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 59,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 1275,
+                  "type": "<int>"
+                },
+                "actor": "&8",
+                "top": {
+                  "content": 603,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDActorNode"
+            },
+            {
+              "content": {
+                "useCase": "&7",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 1142,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 507,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "useCase": "&18",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 322,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 48,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "useCase": "&6",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 385,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 421,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "height": {
+                  "content": 580,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 649,
+                  "type": "<int>"
+                },
+                "package": "&25",
+                "left": {
+                  "content": 243,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 800,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDPackage"
+            },
+            {
+              "content": {
+                "useCase": "&20",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 558,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 425,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "height": {
+                  "content": 90,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 79,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 599,
+                  "type": "<int>"
+                },
+                "actor": "&19",
+                "top": {
+                  "content": 564,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDActorNode"
+            },
+            {
+              "content": {
+                "useCase": "&23",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 525,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 97,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "useCase": "&24",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 520,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 171,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "useCase": "&26",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 1067,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 164,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            },
+            {
+              "content": {
+                "useCase": "&22",
+                "height": {
+                  "content": 70,
+                  "type": "<int>"
+                },
+                "width": {
+                  "content": 140,
+                  "type": "<int>"
+                },
+                "left": {
+                  "content": 256,
+                  "type": "<int>"
+                },
+                "top": {
+                  "content": 516,
+                  "type": "<int>"
+                }
+              },
+              "type": "UCDUseCaseNode"
+            }
+          ],
+          "width": {
+            "content": 0,
+            "type": "<int>"
+          },
+          "name": {
+            "content": "",
+            "type": "<string>"
+          },
+          "links": [
+            {
+              "content": {
+                "relationship": "&27",
+                "node1": "&28",
+                "node2": "&29"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&30",
+                "node1": "&31",
+                "node2": "&32"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&33",
+                "node1": "&34",
+                "node2": "&32"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&35",
+                "node1": "&28",
+                "node2": "&36"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&37",
+                "node1": "&38",
+                "node2": "&39"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&40",
+                "node1": "&41",
+                "node2": "&42"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&43",
+                "node1": "&41",
+                "node2": "&44"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&45",
+                "node1": "&41",
+                "node2": "&46"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&47",
+                "node1": "&28",
+                "node2": "&44"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&48",
+                "node1": "&28",
+                "node2": "&49"
+              },
+              "type": "UCDRelationshipLink"
+            },
+            {
+              "content": {
+                "relationship": "&50",
+                "node1": "&28",
+                "node2": "&51"
+              },
+              "type": "UCDRelationshipLink"
+            }
+          ],
+          "left": {
+            "content": 0,
+            "type": "<int>"
+          },
+          "ucModel": "&52",
+          "top": {
+            "content": 0,
+            "type": "<int>"
+          }
+        },
+        "type": "UCDiagram"
+      }]
+    },
+    "type": "UCModel"
+  },
+  "lmf.version": "1.1",
+  "reference": [
+    {"path": "<root>.modelElements[2].specification.basicFlow.steps[7]"},
+    {"path": "<root>.modelElements[2].specification.basicFlow.steps[11]"},
+    {"path": "<root>.modelElements[2].specification.basicFlow.steps[7].natures[1]"},
+    {"path": "<root>.modelElements[0]"},
+    {"path": "<root>.modelElements[2]"},
+    {"path": "<root>.modelElements[5]"},
+    {"path": "<root>.modelElements[13]"},
+    {"path": "<root>.modelElements[8]"},
+    {"path": "<root>.modelElements[7]"},
+    {"path": "<root>.modelElements[6]"},
+    {"path": "<root>.modelElements[1]"},
+    {"path": "<root>.modelElements[12].specification.basicFlow.steps[2]"},
+    {"path": "<root>.modelElements[12].specification.basicFlow.steps[5]"},
+    {"path": "<root>.modelElements[12].specification.basicFlow.steps[2].natures[1]"},
+    {"path": "<root>.modelElements[13].specification.alternativeFlows[0].steps[1]"},
+    {"path": "<root>.modelElements[13].specification.alternativeFlows[0].steps[3]"},
+    {"path": "<root>.modelElements[13].specification.alternativeFlows[0].steps[5]"},
+    {"path": "<root>.modelElements[13].specification.alternativeFlows[0].steps[1].natures[1]"},
+    {"path": "<root>.modelElements[12]"},
+    {"path": "<root>.modelElements[21]"},
+    {"path": "<root>.modelElements[20]"},
+    {"path": "<root>.modelElements[4]"},
+    {"path": "<root>.modelElements[28]"},
+    {"path": "<root>.modelElements[24]"},
+    {"path": "<root>.modelElements[25]"},
+    {"path": "<root>.modelElements[18]"},
+    {"path": "<root>.modelElements[26]"},
+    {"path": "<root>.modelElements[3]"},
+    {"path": "<root>.diagrams[0].nodes[0]"},
+    {"path": "<root>.diagrams[0].nodes[1]"},
+    {"path": "<root>.modelElements[9]"},
+    {"path": "<root>.diagrams[0].nodes[5]"},
+    {"path": "<root>.diagrams[0].nodes[6]"},
+    {"path": "<root>.modelElements[10]"},
+    {"path": "<root>.diagrams[0].nodes[4]"},
+    {"path": "<root>.modelElements[19]"},
+    {"path": "<root>.diagrams[0].nodes[7]"},
+    {"path": "<root>.modelElements[22]"},
+    {"path": "<root>.diagrams[0].nodes[10]"},
+    {"path": "<root>.diagrams[0].nodes[11]"},
+    {"path": "<root>.modelElements[23]"},
+    {"path": "<root>.diagrams[0].nodes[2]"},
+    {"path": "<root>.diagrams[0].nodes[8]"},
+    {"path": "<root>.modelElements[27]"},
+    {"path": "<root>.diagrams[0].nodes[3]"},
+    {"path": "<root>.modelElements[29]"},
+    {"path": "<root>.diagrams[0].nodes[15]"},
+    {"path": "<root>.modelElements[30]"},
+    {"path": "<root>.modelElements[31]"},
+    {"path": "<root>.diagrams[0].nodes[12]"},
+    {"path": "<root>.modelElements[32]"},
+    {"path": "<root>.diagrams[0].nodes[13]"},
+    {"path": "<root>"}
+  ]
+}
